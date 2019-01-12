@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "String", "APP_KEY", "\"0j0fH2IO7SG7DVUvF3DoICk4Bnnq74Vy\""
+            buildConfigField "String", "BASE_URL", "\"http://dataservice.accuweather.com/\""
+        }
+
+        debug {
+            buildConfigField "String", "APP_KEY", "\"0j0fH2IO7SG7DVUvF3DoICk4Bnnq74Vy\""
+            buildConfigField "String", "BASE_URL", "\"http://dataservice.accuweather.com/\""
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //  android support libraries
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+
+    //  dagger
+    annotationProcessor "com.google.dagger:dagger-android-processor:${rootProject.ext.daggerLibVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.daggerLibVersion}"
+    implementation "com.google.dagger:dagger-android-support:${rootProject.ext.daggerLibVersion}"
+    implementation "com.google.dagger:dagger-android:${rootProject.ext.daggerLibVersion}"
+    implementation "com.google.dagger:dagger:${rootProject.ext.daggerLibVersion}"
+
+    //  parser
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonLibVersion}"
+
+    //  rxJava
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroidLibVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava2LibVersion}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.ext.retrofitVersion}"
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.ext.retrofitVersion}"
+
+    //  ok_http3
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.ext.okhttpLibVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.okhttpLibVersion}"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:${rootProject.ext.junitLibVersion}"
+    testImplementation "org.mockito:mockito-all:${rootProject.ext.mockitoLibVersion}"
+    testImplementation "org.hamcrest:hamcrest-all:${rootProject.ext.hamcrestVersion}"
+
+    implementation project(':domain')
+
+}

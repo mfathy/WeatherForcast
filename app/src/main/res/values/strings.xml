@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WeatherForcast</string>
+    <string name="please_enter_city_name">Please Enter City Name</string>
+    <string name="show_weather">Show Weather</string>
+    <string name="_1_day_forecast">1 Day Forecast</string>
+    <string name="_5_day_forecast">5 Day Forecast</string>
+    <string name="_10_day_forecast">10 Day Forecast</string>
+    <string name="_15_day_forecast">15 Day Forecast</string>
+
+    <string name="exception_message_generic">Generic error!</string>
+    <string name="exception_message_no_connection">No Connection!</string>
+    <string name="retry">Retry</string>
+</resources>

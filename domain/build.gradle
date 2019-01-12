@@ -1,0 +1,30 @@
+apply plugin: 'java-library'
+
+configurations {
+    provided
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //  parser
+    implementation "com.google.code.gson:gson:${rootProject.ext.gsonLibVersion}"
+
+    //  rxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.ext.rxjava2LibVersion}"
+
+    //  arrow: utilities and helper classes commonly used for mobile development
+    implementation "com.fernandocejas:arrow:${rootProject.ext.arrowVersion}"
+
+    //  dagger
+    provided "com.google.dagger:dagger-compiler:${rootProject.ext.daggerLibVersion}"
+    implementation "com.google.dagger:dagger:${rootProject.ext.daggerLibVersion}"
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:${rootProject.ext.junitLibVersion}"
+    testImplementation "org.mockito:mockito-all:${rootProject.ext.mockitoLibVersion}"
+    testImplementation "org.hamcrest:hamcrest-all:${rootProject.ext.hamcrestVersion}"
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
